@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<handler-chains xmlns="https://jakarta.ee/xml/ns/jakartaee" version="3.0">
+    <handler-chain>
+        <handler>
+            <handler-name>MacAddressHandler</handler-name>
+            <handler-class>ms.paint.handler.MacAddressValidatorHandler</handler-class>
+        </handler>
+    </handler-chain>
+</handler-chains>
