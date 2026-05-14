@@ -18,7 +18,10 @@ public class MessageResource {
     private MessageService messageService;
 
     @GetMapping(produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
-    public List<Message> getMessages() {
+    public List<Message> getMessages(@RequestParam(value = "startsWith", required = false) String zaczynasie) {
+        if (zaczynasie != null && !zaczynasie.isEmpty()) {
+            return messageService.getAllMessagesStartingWith(zaczynasie);
+        }
         return messageService.getAllMessages();
     }
 

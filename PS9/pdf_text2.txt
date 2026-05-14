@@ -1,0 +1,42 @@
+Rozproszone systemy internetowe
+RESTful web services, JAX-RS
+Zagadnienia:
+1.Tworzenie RESTful serwisu, zwracanie listy obiektów
+2.WADL
+3.Tworzenie klienta (JAX-RS Client)
+4.Przekazywanie obiektu jako parametr dla serwisuSources and
+help:
+What are
+RESTful Web
+Services
+(ORACLE)
+Jersey
+documentation -
+5. Client API 
+Jersey User
+Guide
+Ćwiczenie 1. Tworzenie serwisu zwracającego listę produktów w JSON
+Utwórz RESTful serwis zwracający listę produktów
+Obiekt odpowiedzi ResponseList
+Testowanie serwisu w przeglądarce
+Ćwiczenie 2. Podgląd pliku WADL dla serwisu
+Przejrzyj zawartość pliku WADL 
+XML Schema
+Ćwiczenie 3. Tworzenie klienta dla serwisu (Jersey Client)
+Utwórz klienta dla serwisu zwracającego produkty
+1. Tworzenie klineta „New RESTful Java Client” wizard
+Przykładowa treść wygenerowanego klienta
+2. Użycie JAXB Binding do utworzenia potrzebnych klas (np. ResponseList.java) w 
+kliencie
+3. Użycie klienta do pobrania listy produktów
+Ktoś ze studentów zgłaszał, że był problem ze zwracanym obiektem, był pusty (null), 
+przy Glassfish 5.0. Przy Glassfish 4.1 działa. Rozwiązaniem się okazało ustawienie 
+@Produces(MediaType.APPLICATION_XML) po stronie seriwsu zamiast 
+@Produces(MediaType.APPLICATION_JSON).
+Podgląd komunikatów w HTTP Monitorze:
+Ćwiczenie 4. Serwis z przyjmujący obiekt jako parametr i zwracający listę 
+obiektów
+Dodanie RESTful API wyszukujące produkty po nazwie, producencie i cenie 
+Zapytanie po stronie klienta
+Podgląd komunikatów w HTTP Monitorze:
+Politechnika Białostocka, Wydział Informatyki  

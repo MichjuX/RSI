@@ -1,0 +1,35 @@
+Rozproszone systemy internetowe
+JAX-RS (RESTful web services)cz.3
+•JAX-RS Client  
+•@QueryParamSources and help:
+What are RESTfulWeb Services(ORACLE)
+JAX-RS Tutorialby mkyong
+JerseyDocumentation
+Ćwiczenie 1. Tworzenie prostego RESTful Java klienta
+Uruchomić i przetestować różne operacje GET i PUT na web serwisie REST utworzonym na 
+poprzednich zajęciach.
+Client client = ClientBuilder.newClient();
+WebTarget target = client.target("http://localhost:8080/RestWS4/webresources/messages/
+1"); 
+String message = target.request(MediaType.APPLICATION_JSON).get(String.class);
+System.out.println("response: " + message);
+Jeśli klienta piszemy w zwykłym projekcie javy (Java Application), należy dodać do 
+projektu biblioteki JAX-RS i Jersey (Library Jersey w NetBeans można dodać przez 
+Tools→Plugins).
+Ćwiczenie 2. Przekazywanie parametru do wyszukiwania
+Utworzyć API które wyszukuje wszystkie wiadomości zaczynające się od podanych w URI 
+liter (małych lub dużych)
+http://localhost:8080/RestWS5/webresources/messages?zaczynasie=pi
+http://localhost:8080/RestWS5/webresources/messages?zaczynasie=dr
+@GET
+@Produces(MediaType.APPLICATION_JSON)
+public List<Message> getMessages(@QueryParam("zaczynasie") String par1 ) {
+if (par1 != null){
+return messageService.getAllMessagesStartingWith(par1); 
+}
+return messageService.getAllMessages();
+}
+PS. RESTful services with jQuery and Java using JAX-RS and Jersey
+Ćwiczenie 3. Przekazywanie wielu parametrów do wyszukiwania
+Wykonaj ćwiczenia 1-4 ze strony  z części 2
+Politechnika Białostocka, Wydział Informatyki  

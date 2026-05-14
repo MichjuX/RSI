@@ -22,6 +22,20 @@ public class MessageService {
         return new ArrayList<>(messages.values());
     }
 
+    public List<Message> getAllMessagesStartingWith(String prefix) {
+        if (prefix == null || prefix.isEmpty()) {
+            return getAllMessages();
+        }
+        String lowerPrefix = prefix.toLowerCase();
+        List<Message> filtered = new ArrayList<>();
+        for (Message m : messages.values()) {
+            if (m.getMessage() != null && m.getMessage().toLowerCase().startsWith(lowerPrefix)) {
+                filtered.add(m);
+            }
+        }
+        return filtered;
+    }
+
     public Message getMessage(Long id) {
         return messages.get(id);
     }
